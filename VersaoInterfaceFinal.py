@@ -7,7 +7,7 @@ from mysql.connector import (connection);
 from datetime import date
 import os #Biblioteca para importar o comando 'CLS'
 import socket; #Biblioteca para importar o ip interno do computador
-from requests import get #Para obter um valor de um site
+from requests import get #Para obter uma requisição de um site
 from tkinter import *
 from tkinter import messagebox
 
