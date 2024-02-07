@@ -69,9 +69,9 @@ def Verificar_Conexao_Jogos(ping, jitter):
 	os.system("cls");
 
 def Verificar_Velocidade_Media():
-	db_connection = mysql.connector.connect(host = '127.0.0.1', user = 'root', password = '', database = 'Resultado_testes');
+	db_connection = mysql.connector.connect(host = '127.0.0.1', user = 'root', password = '1234', database = 'Resultado_testes');
 	cursor = db_connection.cursor();
-	sql = ("SELECT AVG(Download), AVG(Upload), AVG(Ping), AVG(Jitter) FROM Resultados2");
+	sql = ("SELECT AVG(Download), AVG(Upload), AVG(Ping), AVG(Jitter) FROM Resultados");
 	cursor.execute(sql);
 
 	for(Download, Upload, Ping, Jitter) in cursor:

@@ -24,7 +24,7 @@ def Imprime_Resultados(q, data_atual, hora_atual, velocidade_download, velocidad
 	os.system("cls");	
 
 def Melhores_Piores_Horarios():
-	db_connection = mysql.connector.connect(host = '127.0.0.1', user = 'root', password = '', database = 'Resultado_testes');
+	db_connection = mysql.connector.connect(host = '127.0.0.1', user = 'root', password = '1234', database = 'Resultado_testes');
 
 	cursor = db_connection.cursor();
 	cursor2 = db_connection.cursor();
