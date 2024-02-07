@@ -3,8 +3,8 @@ from mysql.connector import errorcode
 from mysql.connector import (connection);
 from datetime import date
 from tkinter import messagebox
-from ObterResultados import Imprime_Resultados
 import os
+from Functions.ObterResultados import Imprime_Resultados;
 import speedtest
 from datetime import datetime
 
@@ -12,7 +12,7 @@ def Efetuar_Teste(quantidade_testes):
 	messagebox.showinfo(title = "AVISO", message = "O teste será inicializado após clicar\nem ok ou a aba ser fechada!");
 	for q in range(quantidade_testes):
 		data_atual, hora_atual, velocidade_download, velocidade_upload, ping, jitter = Teste_Internet();
-		db_connection = mysql.connector.connect(host = '127.0.0.1', user = 'root', password = '', database = 'Resultado_testes');
+		db_connection = mysql.connector.connect(host = '127.0.0.1', user = 'root', password = '1234', database = 'Resultado_testes');
 		cursor = db_connection.cursor();
 		sql = "INSERT INTO Resultados (Data, Horário, Download, Upload, Ping, Jitter) VALUES (%s, %s, %s, %s, %s, %s)";
 		values = (data_atual, hora_atual, velocidade_download, velocidade_upload, ping, jitter);
@@ -30,7 +30,7 @@ def Efetuar_Teste(quantidade_testes):
 
 def Teste_Internet():
     # Instanciando a função de test do Speedtest
-	teste = speedtest.Speedtest();
+	teste = speedtest.Speedtest(secure = True);
 	print("\nCarregando a lista de servidores...");
 	teste.get_servers(); #a função get_servers serve para obter as informações referentes ao servidores disponíveis
 	print("\nEscolhendo o melhor servidor...");   

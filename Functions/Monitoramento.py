@@ -3,9 +3,9 @@ import os
 from tkinter import messagebox
 from time import sleep 
 from datetime import date
-from ObterResultados import Imprime_Resultados
+from Functions.ObterResultados import Imprime_Resultados
 import mysql
-from Teste import Teste_Internet
+from Functions.Teste import Teste_Internet
 
 def Entrada_Dados_Monitoramento():
 	janela = Tk();
@@ -56,7 +56,7 @@ def Efetuar_Teste_Monitoramento(quantidade_testes, intervalo_minutos, nome):
 
 	for q in range(quantidade_testes):
 		data_atual, hora_atual, velocidade_download, velocidade_upload, ping, jitter = Teste_Internet();
-		db_connection = mysql.connector.connect(host = '127.0.0.1', user = 'root', password = '', database = 'Resultado_testes');
+		db_connection = mysql.connector.connect(host = '127.0.0.1', user = 'root', password = '1234', database = 'Resultado_testes');
 		cursor = db_connection.cursor();
 		sql = (f"INSERT INTO {nome} (Data, Horário, Download, Upload, Ping, Jitter) VALUES (%s, %s, %s, %s, %s, %s)");
 		values = (data_atual, hora_atual, velocidade_download, velocidade_upload, ping, jitter);
